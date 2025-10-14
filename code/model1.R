@@ -5,10 +5,10 @@ library(ggplot2)
 library(patchwork)
 
 #load jags data
-load("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/data/model1data.RData") 
+load("model1data.RData") 
 
 #set working directory to save the jags script
-setwd("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/jagsScripts")
+setwd("jagsScripts")
 
 #jags model~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 sink("m1.jags")
@@ -79,5 +79,5 @@ m1 <- jags(jags.data, inits, parameters, "m1.jags", parallel = T,
 summary(m1)
 
 #set working directory to save the jags script
-setwd("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out")
 saveRDS(m1, file = "model1output.rds")
+
