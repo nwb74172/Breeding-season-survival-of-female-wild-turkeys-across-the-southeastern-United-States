@@ -5,10 +5,10 @@ library(ggplot2)
 library(patchwork)
 
 #load jags data
-load("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/data/model2data.RData") 
+load("model2data.RData") 
 
 #load jags out
-model2output <- readRDS("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out/model2output.rds") 
+model2output <- readRDS("model2output.rds") 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #assess temporal variation in dsp during laying, incubation, and brooding
@@ -140,9 +140,9 @@ p12 <- deaths %>% filter(state == "not breeding")%>%
   ggtitle("Not currently breeding mortalities")
 p12
 
-setwd("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out")
 ggsave(filename = "figure3.png", plot = p11, width = 9, height = 5, units = "in", dpi = 300)
 ggsave(filename = "appendixfigure1.png", plot = p12, width = 5, height = 5, units = "in", dpi = 300)
+
 
 
 
