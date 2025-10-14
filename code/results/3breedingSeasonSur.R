@@ -5,10 +5,10 @@ library(ggplot2)
 library(patchwork)
 
 #load jags data
-load("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/data/model1data.RData") 
+load("model1data.RData") 
 
 #load jags out
-model1output <- readRDS("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out/model1output.rds") 
+model1output <- readRDS("model1output.rds") 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #breeding season survival for adults and juvs
@@ -159,7 +159,7 @@ row.names(table1) <- c("Breeding Adult", "Breeding juvenile", "Non-breeding Adul
 colnames(table1) <- c("Breeding Adult", "Breeding juvenile", "Non-breeding Adult", "Non-breeding juvenile")
 table1
 
-setwd("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out")
 write.csv(table1, file = "appendixTable1.csv")
+
 
 
