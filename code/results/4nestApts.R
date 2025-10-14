@@ -5,10 +5,10 @@ library(ggplot2)
 library(patchwork)
 
 #load jags data
-load("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/data/model1data.RData") 
+load("model1data.RData") 
 
 #load jags out
-model1output <- readRDS("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out/model1output.rds") 
+model1output <- readRDS("model1output.rds") 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #breeding season survival for more multiple nesting attempts
@@ -113,8 +113,8 @@ ageAtt
 rownames(ageAtt) <- NULL
 
 #add values for 0 nesting attempts
-ageAtt[7,] <- c("Adult", "0", quantile(bsPhiAnb, c(0.025,0.5,0.975)))
-ageAtt[8,] <- c("Juvenile", "0", quantile(bsPhiJnb, c(0.025,0.5,0.975)))
+#ageAtt[7,] <- c("Adult", "0", quantile(bsPhiAnb, c(0.025,0.5,0.975)))
+#ageAtt[8,] <- c("Juvenile", "0", quantile(bsPhiJnb, c(0.025,0.5,0.975)))
 
 #order rows for table below 
 ageAtt <- ageAtt[order(ageAtt$Age, ageAtt$Attempt), ]
@@ -125,7 +125,7 @@ ageAtt$Attempt=factor(ageAtt$Attempt,levels=c("0","1","2","3"))
 
 #view
 ageAtt
-for (i in 1:8) {
+for (i in 1:6) {
   for (j in 3:5) {
     ageAtt[i,j] <- round(ageAtt[i,j],digits = 3)
   } 
@@ -141,7 +141,6 @@ p4<-ggplot() +
   theme(legend.position = "right", axis.text = element_text(color="black"))
 p4
 
-setwd("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out")
 ggsave(filename = "figure1.png", plot = p4, width = 5, height = 5, units = "in", dpi = 300)
 
 
@@ -206,6 +205,6 @@ colnames(table4) <- c("aa0","aa1","aa2","aa3","ja0","ja1","ja2","ja3")
 #view
 table4
 
-setwd("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out")
 write.csv(table4, file = "appendixTable2.csv")
+
 
