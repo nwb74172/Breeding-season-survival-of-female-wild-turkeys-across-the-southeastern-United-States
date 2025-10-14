@@ -5,10 +5,10 @@ library(ggplot2)
 library(patchwork)
 
 #load jags data
-load("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/data/model1data.RData") 
+load("model1data.RData") 
 
 #load jags out
-model1output <- readRDS("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out/model1output.rds") 
+model1output <- readRDS("model1output.rds") 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #how many individuals monitored
@@ -80,6 +80,7 @@ table(jags.data$y[jags.data$x=="3"])
 table(jags.data$y[jags.data$x=="4"])
 table(jags.data$y[jags.data$x=="1"])
 table(jags.data$y[jags.data$x=="2"])
+
 
 
 
