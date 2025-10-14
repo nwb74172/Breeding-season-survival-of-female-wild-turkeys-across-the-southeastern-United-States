@@ -5,10 +5,10 @@ library(ggplot2)
 library(patchwork)
 
 #load jags data
-load("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/data/model1data.RData") 
+load("model1data.RData") 
 
 #load jags out
-model1output <- readRDS("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out/model1output.rds") 
+model1output <- readRDS("model1output.rds") 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #dsp table for all age-state-period combos
@@ -85,7 +85,6 @@ for (i in 1:22) {
 }
 table2
 
-setwd("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out")
 write.csv(table2, file = "table1.csv")
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -94,7 +93,7 @@ write.csv(table2, file = "table1.csv")
 
 #set factor levels
 dspDF$Period=factor(dspDF$Period,levels=c("Early","Mid","Late"))
-dspDF$`Phenological-specific state`=factor(dspDF$`Phenological-specific state`,levels=c("Not currently breeding","Egg-laying","Incubation","Brood-rearing"))
+dspDF$`Phenological-specific state`=factor(dspDF$`Phenological-specific state`,levels=c("Not reproductively active","Egg-laying","Incubation","Brood-rearing"))
 
 p3 <- dspDF %>%
   ggplot() +
@@ -115,7 +114,6 @@ p3 <- dspDF %>%
   facet_wrap(~age, ncol = 1, scales = "fixed")
 p3
 
-setwd("C:/Users/dylan.bakner/Documents/manuscripts/turkeySurvival/secondRoundRevisions/revisedAnalyses/analysis9.24.25/out")
 ggsave(filename = "figure2.png", plot = p3, width = 6.5, height = 6, units = "in", dpi = 300)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,3 +127,4 @@ for (i in 1:4) {
     }
   }
 }
+
